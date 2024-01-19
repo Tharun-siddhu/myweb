@@ -31,12 +31,12 @@
 	
 	<distributionManagement>
 		 <snapshotRepository>
-		    <id>deploymentRepo</id>
+		    <id>myRepo</id>
 		    <url>http://54.167.198.251:8081/repository/sample-snapshots/</url>
 		 </snapshotRepository>
 		
 		<repository>
-		    <id>deploymentRepo</id>
+		    <id>myRepo</id>
 		    <url>http://54.167.198.251:8081/repository/sample-releases/</url>
 		</repository>
   	</distributionManagement>
