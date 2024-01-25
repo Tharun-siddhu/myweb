@@ -32,12 +32,12 @@
 	<distributionManagement>
 		 <snapshotRepository>
 		    <id>myRepo</id>
-		    <url>http://3.80.193.243:8081/repository/sample-snapshots/</url>
+		    <url>http://52.207.193.125:8081/repository/sample-snapshots/</url>
 		 </snapshotRepository>
 		
 		<repository>
 		    <id>myRepo</id>
-		    <url>http://3.80.193.243:8081/repository/sample-releases/</url>
+		    <url>http://52.207.193.125:8081/repository/sample-releases/</url>
 		</repository>
   	</distributionManagement>
 	
