@@ -10,7 +10,7 @@ pipeline{
     stages{
         stage("Git Checkout"){
             steps{
-                git credentialsId: 'javahome2', url: 'https://github.com/srinicloud87/myweb.git'
+                git credentialsId: 'javahome2', url: 'https://github.com/Tharun-siddhu/myweb.git'
             }
         }
         stage("Maven Build"){
@@ -31,7 +31,7 @@ pipeline{
                   ], 
                   credentialsId: 'nexus3', 
                   groupId: 'in.javahome', 
-                  nexusUrl: '172.31.41.50:8081', 
+                  nexusUrl: '172.31.94.245:8081', 
                   nexusVersion: 'nexus3', 
                   protocol: 'http', 
                   repository: 'sample-releases', 
@@ -40,22 +40,22 @@ pipeline{
             }
         stage('Build Docker Image'){
             steps{
-                 sh 'docker build -t srinidockerhub87/spring-boot-mongo .'
+                 sh 'docker build -t tkank01/spring-boot-mongo .'
              }
          }
         stage('Push Docker Image'){
              steps{
-                  withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKER_HUB_CREDENTIALS')]) {
-                      sh "docker login -u srinidockerhub87 -p ${DOCKER_HUB_CREDENTIALS}"
+                  withCredentials([string(credentialsId: 'DOCKER2', variable: 'DOCKER2')]) {
+                      sh "docker login -u tkank01 -p ${DOCKER2}"
             }
-            sh 'docker push srinidockerhub87/spring-boot-mongo'
+            sh 'docker push tkank01/spring-boot-mongo'
         }
       }
         stage("Deploy To Kuberates Cluster"){
               steps{
                    kubernetesDeploy(
                    configs: 'springBoot.yml', 
-                   kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
+                   kubeconfigId: 'KUBERNETES3',
                    enableConfigSubstitution: true
             )
         }
