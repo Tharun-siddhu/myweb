@@ -45,8 +45,8 @@ pipeline{
          }
         stage('Push Docker Image'){
              steps{
-                  withCredentials([string(credentialsId: 'DOCKER2', variable: 'DOCKER2')]) {
-                      sh "docker login -u tkank01 -p ${DOCKER2}"
+                  withCredentials([string(credentialsId: 'DOCKER3', variable: 'DOCKER3')]) {
+                      sh "docker login -u tkank01 -p ${DOCKER3}"
             }
             sh 'docker push tkank01/spring-boot-mongo'
         }
